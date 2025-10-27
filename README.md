@@ -7,7 +7,7 @@ You will need the following:
 
 Python 3.7.1 and above
 
-PySide2
+PySide6
 
 numpy
 
