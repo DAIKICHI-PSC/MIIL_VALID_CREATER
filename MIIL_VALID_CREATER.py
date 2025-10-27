@@ -7,7 +7,7 @@ import numpy as np #行列処理用モジュールの読込
 import math as mt #各種計算用モジュールの読込
 import cv2 #画像処理用モジュールの読込
 import glob #ファイルパス一括取得用モジュールの読込
-from PySide2 import QtCore, QtGui, QtWidgets #GUI関連処理用モジュールの読込
+from PySide6 import QtCore, QtGui, QtWidgets #GUI関連処理用モジュールの読込
 from MIIL_VALID_CREATER_GUI import Ui_MainWindow #QT Designerで作成し変換したファイルの読込
 from getRectanglePos import getRectanglePos #２点の何れかが選択領域の開始点（左上）になり、終点（左下）になるか判定し、さらに終点が指定した範囲にあるかるか確認するライブラリ
 
@@ -147,20 +147,20 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
         self.ui.listWidget1.currentRowChanged.connect(self.listWidget1_changed) #listWidget1_changedは任意
         self.ui.listWidget2.currentRowChanged.connect(self.listWidget2_changed) #listWidget2_changedは任意
         self.ui.listWidget3.currentRowChanged.connect(self.listWidget3_changed) #listWidget3_changedは任意
-        QtCore.QObject.connect(self.ui.pushButton1, QtCore.SIGNAL("clicked()"), self.pushButton1_clicked) #pushButton1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton2, QtCore.SIGNAL("clicked()"), self.pushButton2_clicked) #pushButton2_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton3, QtCore.SIGNAL("clicked()"), self.pushButton3_clicked) #pushButton1_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton4, QtCore.SIGNAL("clicked()"), self.pushButton4_clicked) #pushButton4_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton5, QtCore.SIGNAL("clicked()"), self.pushButton5_clicked) #pushButton5_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton6, QtCore.SIGNAL("clicked()"), self.pushButton6_clicked) #pushButton6_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton7, QtCore.SIGNAL("clicked()"), self.pushButton7_clicked) #pushButton7_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton8, QtCore.SIGNAL("clicked()"), self.pushButton8_clicked) #pushButton8_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton9, QtCore.SIGNAL("clicked()"), self.pushButton9_clicked) #pushButton9_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton10, QtCore.SIGNAL("clicked()"), self.pushButton10_clicked) #pushButton10_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton11, QtCore.SIGNAL("clicked()"), self.pushButton11_clicked) #pushButton11_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton12, QtCore.SIGNAL("clicked()"), self.pushButton12_clicked) #pushButton12_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton13, QtCore.SIGNAL("clicked()"), self.pushButton13_clicked) #pushButton13_clickedは任意
-        QtCore.QObject.connect(self.ui.pushButton14, QtCore.SIGNAL("clicked()"), self.pushButton14_clicked) #pushButton14_clickedは任意
+        self.ui.pushButton1.clicked.connect(self.pushButton1_clicked) #pushButton1_clickedは任意
+        self.ui.pushButton2.clicked.connect(self.pushButton2_clicked) #pushButton2_clickedは任意
+        self.ui.pushButton3.clicked.connect(self.pushButton3_clicked) #pushButton1_clickedは任意
+        self.ui.pushButton4.clicked.connect(self.pushButton4_clicked) #pushButton4_clickedは任意
+        self.ui.pushButton5.clicked.connect(self.pushButton5_clicked) #pushButton5_clickedは任意
+        self.ui.pushButton6.clicked.connect(self.pushButton6_clicked) #pushButton6_clickedは任意
+        self.ui.pushButton7.clicked.connect(self.pushButton7_clicked) #pushButton7_clickedは任意
+        self.ui.pushButton8.clicked.connect(self.pushButton8_clicked) #pushButton8_clickedは任意
+        self.ui.pushButton9.clicked.connect(self.pushButton9_clicked) #pushButton9_clickedは任意
+        self.ui.pushButton10.clicked.connect(self.pushButton10_clicked) #pushButton10_clickedは任意
+        self.ui.pushButton11.clicked.connect(self.pushButton11_clicked) #pushButton11_clickedは任意
+        self.ui.pushButton12.clicked.connect(self.pushButton12_clicked) #pushButton12_clickedは任意
+        self.ui.pushButton13.clicked.connect(self.pushButton13_clicked) #pushButton13_clickedは任意
+        self.ui.pushButton14.clicked.connect(self.pushButton14_clicked) #pushButton14_clickedは任意
 
 #=====ウィジットのシグナル処理用メッソド========================================
     #-----listWidget1用イベント処理----------------------------------------
@@ -196,13 +196,13 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MVC")
                         msgbox.setText("Something is wrong with setting data.") #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     #####
             else:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MVC")
                 msgbox.setText("Something is wrong with picture data.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
 
     #-----listWidget2用イベント処理----------------------------------------
     ##########
@@ -237,13 +237,13 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MVC")
                         msgbox.setText("Something is wrong with setting data.") #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     #####
             else:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MVC")
                 msgbox.setText("Something is wrong with picture data.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
 
     #-----listWidget3用イベント処理----------------------------------------
     ##########
@@ -278,13 +278,13 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                         msgbox = QtWidgets.QMessageBox(self)
                         msgbox.setWindowTitle("MVC")
                         msgbox.setText("Something is wrong with setting data.") #メッセージボックスのテキストを設定
-                        ret = msgbox.exec_() #メッセージボックスを表示
+                        ret = msgbox.exec() #メッセージボックスを表示
                     #####
             else:
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MVC")
                 msgbox.setText("Something is wrong with picture data.") #メッセージボックスのテキストを設定
-                ret = msgbox.exec_() #メッセージボックスを表示
+                ret = msgbox.exec() #メッセージボックスを表示
 
     #-----pushButton1用イベント処理----------------------------------------
     ##########
@@ -296,7 +296,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("Please set file path.") #メッセージボックスのテキストを設定
-            ret = msgbox.exec_() #メッセージボックスを表示
+            ret = msgbox.exec() #メッセージボックスを表示
         else:
             self.ui.pushButton1.setEnabled(False)
             self.ui.pushButton2.setEnabled(True)
@@ -346,7 +346,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                 msgbox = QtWidgets.QMessageBox(self)
                 msgbox.setWindowTitle("MVC")
                 msgbox.setText("Wrone file read.")
-                ret = msgbox.exec_()
+                ret = msgbox.exec()
             else: #パラメータファイル内にtrain = の記述がある場合の処理
                 textList1[1] = textList1[1].replace("\n", "") #データから改行コードを削除
                 textList1[1] = textList1[1].replace("\r", "") #データから改行コードを削除
@@ -366,7 +366,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MVC")
                     msgbox.setText("Something is wrong with training data path in parameter file.")
-                    ret = msgbox.exec_()
+                    ret = msgbox.exec()
 
                 if os.path.isfile(ValidData): #ファイルが存在するか確認
                     f = open(ValidData, "r") #ファイルの読み込み開始
@@ -377,7 +377,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MVC")
                     msgbox.setText("Something is wrong with valid data path in parameter file.")
-                    ret = msgbox.exec_()
+                    ret = msgbox.exec()
 
                 SplitPath = textList2[0].rsplit('/', 1) #読込んだテキストの一覧の一行目から、ディレクトリのパスを取得
                 DirPath = SplitPath[0] #ディレクトリのパスを取得
@@ -385,7 +385,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
                     msgbox = QtWidgets.QMessageBox(self)
                     msgbox.setWindowTitle("MVC")
                     msgbox.setText("No data found.")
-                    ret = msgbox.exec_()
+                    ret = msgbox.exec()
                 else: #ディレクトリのパスがある場合の処理
                     LWEventCancel1 = 1 #listWidget1のイベント発生時に処理をしないようにする。
                     LWEventCancel2 = 1 #listWidget2のイベント発生時に処理をしないようにする。
@@ -475,7 +475,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget2.addItem(self.ui.listWidget1.currentItem().text()) #listWidget1のアイテムをlistWidget2に追加
             self.ui.listWidget1.takeItem(self.ui.listWidget1.currentRow()) #listWidget1のアイテムを削除
@@ -497,7 +497,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget3.addItem(self.ui.listWidget1.currentItem().text()) #listWidget1のアイテムをlistWidget3に追加
             self.ui.listWidget1.takeItem(self.ui.listWidget1.currentRow()) #listWidget1のアイテムを削除
@@ -519,7 +519,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget3.addItem(self.ui.listWidget2.currentItem().text()) #listWidget2のアイテムをlistWidget3に追加
             self.ui.listWidget2.takeItem(self.ui.listWidget2.currentRow()) #listWidget2のアイテムを削除
@@ -547,7 +547,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget1.addItem(self.ui.listWidget2.currentItem().text()) #listWidget2のアイテムをlistWidget1に追加
             self.ui.listWidget2.takeItem(self.ui.listWidget2.currentRow()) #listWidget2のアイテムを削除
@@ -569,7 +569,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget2.addItem(self.ui.listWidget3.currentItem().text()) #listWidget3のアイテムをlistWidget2に追加
             self.ui.listWidget3.takeItem(self.ui.listWidget3.currentRow()) #listWidget3のアイテムを削除
@@ -597,7 +597,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data selected.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
         else: #リストウィジットのアイテムが選択されている場合
             self.ui.listWidget1.addItem(self.ui.listWidget3.currentItem().text()) #listWidget3のアイテムをlistWidget1に追加
             self.ui.listWidget3.takeItem(self.ui.listWidget3.currentRow()) #listWidget3のアイテムを削除
@@ -627,7 +627,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
 
     #-----pushButton11用イベント処理----------------------------------------
     ##########
@@ -653,7 +653,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
 
     #-----pushButton12用イベント処理----------------------------------------
     ##########
@@ -679,7 +679,7 @@ class MainWindow1(QtWidgets.QMainWindow): #QtWidgets.QMainWindowを継承
             msgbox = QtWidgets.QMessageBox(self)
             msgbox.setWindowTitle("MVC")
             msgbox.setText("No data.")
-            ret = msgbox.exec_()
+            ret = msgbox.exec()
 
     #-----pushButton13用イベント処理----------------------------------------
     ##########
@@ -781,4 +781,4 @@ if __name__ == '__main__': #C言語のmain()に相当。このファイルが実
     app = QtWidgets.QApplication(sys.argv) #アプリケーションオブジェクト作成（sys.argvはコマンドライン引数のリスト）
     win = MainWindow1() #MainWindow1クラスのインスタンスを作成
     win.show() #ウィンドウを表示　win.showFullScreen()やwin.showEvent()を指定する事でウィンドウの状態を変える事が出来る
-    sys.exit(app.exec_()) #引数が関数の場合は、関数が終了するまで待ち、その関数の返値を上位プロセスに返す
+    sys.exit(app.exec()) #引数が関数の場合は、関数が終了するまで待ち、その関数の返値を上位プロセスに返す
